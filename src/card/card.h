@@ -24,7 +24,7 @@ enum class Rank {
     Jack,
     Queen,
     King,
-    Ace = 14
+    Ace
 };
 
 
@@ -33,6 +33,8 @@ public:
     Rank rank;
     Suit suit;
 
+    Card();
+    Card& operator=(const Card& other);
     Card(Rank r, Suit s) : rank(r), suit(s) {}
 };
 #endif
