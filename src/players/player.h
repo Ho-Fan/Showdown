@@ -9,16 +9,17 @@
 
 class Player
 {
-protected:
-    std::vector<Card> hands;
-    std::string name;
-    int points;
+    protected:
+        std::string name;
+        int points;
+        std::vector<Card> hands;
 
-public:
-    void name_himself(const std::string& name);
-    void exchange_hands(player& other);
-    virtual Card show_card() = 0;
-    void draw_card(Deck& deck);
+    public:
+        Play();
+        void name_himself(const std::string& name);
+        void exchange_hands(player& other);
+        virtual Card show_card() = 0;
+        void draw_card(Deck& deck);
 };
 
 #endif

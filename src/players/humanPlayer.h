@@ -12,12 +12,4 @@ public:
     ~humanPlayer();
 };
 
-humanPlayer::humanPlayer(/* args */)
-{
-}
-
-humanPlayer::~humanPlayer()
-{
-}
-
 #endif
