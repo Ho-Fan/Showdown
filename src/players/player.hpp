@@ -1,8 +1,8 @@
 #include <vector>
 #include <string>
-#include "card/deck.h"
-#include "card/card.h"
-#include "players/exchangeHands.h"
+#include "card/deck.hpp"
+#include "card/card.hpp"
+#include "players/exchangeHands.hpp"
 #ifndef PLAYER_H
 #define PLAYER_H
 

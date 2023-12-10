@@ -1,4 +1,4 @@
-#include "humanPlayer.h"
+#include "humanPlayer.hpp"
 
 humanPlayer::humanPlayer()
 {

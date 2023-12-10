@@ -1,9 +1,9 @@
 #include <cstdlib>
 #include <vector>
 #include <memory>
-#include "players/player.h"
-#include "players/aiPlayer.h"
-#include "players/humanPlayer.h"
+#include "players/player.hpp"
+#include "players/aiPlayer.hpp"
+#include "players/humanPlayer.hpp"
 
 class ShowDown
 {

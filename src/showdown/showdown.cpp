@@ -1,4 +1,4 @@
-#include "showdown/showdown.h"
+#include "showdown/showdown.hpp"
 
 ShowDown::ShowDown()
 {

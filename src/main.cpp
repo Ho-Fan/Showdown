@@ -1,6 +1,6 @@
 #include <cstdlib>
 #include <iostream>
-#include "showdown/showdown.h"
+#include "showdown/showdown.hpp"
 
 int main(void)
 {

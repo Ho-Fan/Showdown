@@ -1,4 +1,4 @@
-#include "aiPlayer.h"
+#include "aiPlayer.hpp"
 
 aiPlayer::aiPlayer()
 {

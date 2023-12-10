@@ -1,4 +1,4 @@
-#include "players/player.h"
+#include "players/player.hpp"
 #ifndef AIPLAYER_H
 #define AIPLAYER_H
 

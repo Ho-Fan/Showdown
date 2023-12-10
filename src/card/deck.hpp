@@ -1,5 +1,5 @@
 #include <vector>
-#include "card/card.h"
+#include "card/card.hpp"
 #ifndef DECK_H
 #define DECK_H
 
