@@ -1,4 +1,5 @@
-#include "players/player.hpp"
-#ifndef EXCHANGEHANDS_H
-#define EXCHANGEHANDS_H
+#ifndef EXCHANGEHANDS_HPP
+#define EXCHANGEHANDS_HPP
+#include "../players/player.hpp"
+
 #endif

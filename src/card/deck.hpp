@@ -1,7 +1,8 @@
+#ifndef DECK_HPP
+#define DECK_HPP
 #include <vector>
-#include "card/card.hpp"
-#ifndef DECK_H
-#define DECK_H
+#include "../card/card.hpp"
+
 
 
 class Deck

@@ -1,10 +1,11 @@
+#ifndef PLAYER_HPP
+#define PLAYER_HPP
 #include <vector>
 #include <string>
-#include "card/deck.hpp"
-#include "card/card.hpp"
-#include "players/exchangeHands.hpp"
-#ifndef PLAYER_H
-#define PLAYER_H
+#include "../card/deck.hpp"
+#include "../card/card.hpp"
+#include "../players/exchangeHands.hpp"
+
 
 
 class Player
@@ -17,7 +18,7 @@ class Player
     public:
         Play();
         void name_himself(const std::string& name);
-        void exchange_hands(player& other);
+        void exchange_hands(Player& other);
         virtual Card show_card() = 0;
         void draw_card(Deck& deck);
 };
