@@ -4,7 +4,6 @@
 #include <string>
 #include "../card/deck.hpp"
 #include "../card/card.hpp"
-#include "../players/exchangeHands.hpp"
 
 
 
@@ -16,7 +15,7 @@ class Player
         std::vector<Card> hands;
 
     public:
-        Play();
+        Player();
         void name_himself(const std::string& name);
         void exchange_hands(Player& other);
         virtual Card show_card() = 0;

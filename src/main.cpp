@@ -1,9 +1,16 @@
 #include <cstdlib>
 #include <iostream>
-#include "players/player.hpp"
+#include <memory>
+#include "players/aiPlayer.hpp"
+#include "players/humanPlayer.hpp"
 #include "showdown/showdown.hpp"
+#include "card/deck.hpp"
+
 
 int main(void)
 {
-    return 0;
+    ShowDown show_down;
+    std::shared_ptr<Player> ptrPlayer1;
+    Deck deck;
 }
+
