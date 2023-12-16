@@ -4,7 +4,7 @@
 
 
 
-class aiPlayer: public Player
+class aiPlayer : public Player
 {
 private:
     /* data */
@@ -14,3 +14,4 @@ public:
 };
 
 #endif
+

@@ -4,7 +4,7 @@
 
 
 
-class humanPlayer: public Player
+class humanPlayer : public Player
 {
 private:
     /* data */
