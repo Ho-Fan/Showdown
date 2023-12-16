@@ -3,9 +3,9 @@
 #include <cstdlib>
 #include <vector>
 #include <memory>
-#include "../players/player.hpp"
-#include "../players/aiPlayer.hpp"
-#include "../players/humanPlayer.hpp"
+#include "../player/player.hpp"
+#include "../player/aiPlayer.hpp"
+#include "../player/humanPlayer.hpp"
 
 
 
@@ -15,9 +15,9 @@ private:
     std::vector<std::shared_ptr<Player>> players;
     Deck deck;
 public:
-    ShowDown(/* args */);
+    ShowDown();
     ~ShowDown();
-    add_players();
+    void add_player(const std::shared_ptr<Player>& player);
 };
 
 #endif

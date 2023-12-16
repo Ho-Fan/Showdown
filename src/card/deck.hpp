@@ -13,6 +13,6 @@ private:
 public:
     Deck();
     void shuffle();
-    Card deal_card();
+    // Card deal_card();
 };
 #endif

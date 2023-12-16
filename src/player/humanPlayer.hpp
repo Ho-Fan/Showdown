@@ -1,6 +1,6 @@
 #ifndef AIPLAYER_HPP
 #define AIPLAYER_HPP
-#include "../players/player.hpp"
+#include "../player/player.hpp"
 
 
 

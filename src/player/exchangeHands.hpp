@@ -1,6 +1,6 @@
 #ifndef EXCHANGEHANDS_HPP
 #define EXCHANGEHANDS_HPP
-#include "../players/player.hpp"
+#include "../player/player.hpp"
 
 
 class HandsExchange

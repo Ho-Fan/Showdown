@@ -1,15 +1,14 @@
-#include "showdown/showdown.hpp"
+#include "showdown.hpp"
 
 ShowDown::ShowDown()
 {
-    for (int i = 0; i < 4; i++)
-        this -> add_players();
+    
 }
 ShowDown::~ShowDown()
 {
     
 }
-ShowDown::add_players()
+void ShowDown::add_player(const std::shared_ptr<Player>& player)
 {
-    
+    players.push_back(player);
 }
