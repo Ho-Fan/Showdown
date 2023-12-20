@@ -9,12 +9,7 @@
 int main()
 {
     ShowDown show_down;
-    std::shared_ptr<Player> ptrPlayer1;
-    std::shared_ptr<Player> ptrPlayer2;
-    std::shared_ptr<Player> ptrPlayer3;
-    std::shared_ptr<Player> ptrPlayer4;
-
-    std::cout << "something" << std::endl;
+    show_down.flow_join_player();
     return 0;
 }
 

@@ -1,5 +1,5 @@
-#ifndef AIPLAYER_HPP
-#define AIPLAYER_HPP
+#ifndef HUMANPLAYER_HPP
+#define HUMANPLAYER_HPP
 #include "../player/player.hpp"
 
 

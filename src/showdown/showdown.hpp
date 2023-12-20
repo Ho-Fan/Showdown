@@ -17,6 +17,7 @@ private:
 public:
     ShowDown();
     ~ShowDown();
+    void flow_join_player();
     void add_player(const std::shared_ptr<Player>& player);
 };
 
