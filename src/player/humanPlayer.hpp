@@ -4,13 +4,14 @@
 
 
 
-class humanPlayer : public Player
+class HumanPlayer : public Player
 {
 private:
     /* data */
 public:
-    humanPlayer(/* args */);
-    ~humanPlayer();
+    HumanPlayer(/* args */);
+    ~HumanPlayer();
+    Card show_card() override;
 };
 
 #endif

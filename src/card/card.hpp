@@ -34,7 +34,6 @@ public:
     Suit suit;
 
     Card();
-    Card& operator=(const Card& other);
     Card(Rank r, Suit s) : rank(r), suit(s) {}
 };
 #endif

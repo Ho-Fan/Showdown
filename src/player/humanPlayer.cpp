@@ -1,9 +1,14 @@
 #include "humanPlayer.hpp"
 
-humanPlayer::humanPlayer()
+HumanPlayer::HumanPlayer()
 {
 }
 
-humanPlayer::~humanPlayer()
+HumanPlayer::~HumanPlayer()
 {
+}
+
+Card HumanPlayer::show_card()
+{
+    return Card();
 }

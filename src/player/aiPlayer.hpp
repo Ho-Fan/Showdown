@@ -4,13 +4,14 @@
 
 
 
-class aiPlayer : public Player
+class AIPlayer : public Player
 {
 private:
     /* data */
 public:
-    aiPlayer(/* args */);
-    ~aiPlayer();
+    AIPlayer(/* args */);
+    ~AIPlayer();
+    Card show_card() override;
 };
 
 #endif

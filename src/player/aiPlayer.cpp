@@ -1,9 +1,14 @@
 #include "aiPlayer.hpp"
 
-aiPlayer::aiPlayer()
+AIPlayer::AIPlayer()
 {
 }
 
-aiPlayer::~aiPlayer()
+AIPlayer::~AIPlayer()
 {
+}
+
+Card AIPlayer::show_card()
+{
+    return Card();
 }
