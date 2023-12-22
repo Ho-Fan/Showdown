@@ -1,14 +1,14 @@
-#include <cstdlib>
-#include <vector>
-#include <string>
 #include "../player/player.hpp"
 
 Player::Player()
 {
+
 }
 
-void Player::name_himself(const std::string& name)
+void Player::name_himself(const std::string& playerName)
 {
+	name = playerName;
+	std::cout << name << std::endl;
 }
 
 void Player::exchange_hands(Player& other)
