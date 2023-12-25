@@ -1,6 +1,7 @@
 #ifndef DECK_HPP
 #define DECK_HPP
 #include <vector>
+#include <memory>
 #include "../card/card.hpp"
 
 
@@ -8,11 +9,11 @@
 class Deck
 {
 private:
-    std::vector<Card> cards;
+    std::vector<std::unique_ptr<Card>> cards;
 
 public:
     Deck();
     void shuffle();
-    // Card deal_card();
+    std::unique_ptr<Card> deal_card();
 };
 #endif

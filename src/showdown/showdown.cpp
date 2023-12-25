@@ -12,8 +12,9 @@ ShowDown::~ShowDown()
 
 }
 
-void ShowDown::flow0_join_player()
-{
+void ShowDown::step0_join_player()
+{   
+    std::cout << "==== Step 0: Join players. ====" << "\n" << std::endl;
     char response;
     for (int i = 1; i < 5; i++)
     {
@@ -21,27 +22,39 @@ void ShowDown::flow0_join_player()
         std::cin >> response;
         if (response == 'y' or response == 'Y')
         {
-            add_player(std::make_shared<HumanPlayer>());
+            add_player(std::make_shared<HumanPlayer>(i));
         }
         else
         {
-            add_player(std::make_shared<AIPlayer>());
+            add_player(std::make_shared<AIPlayer>(i));
         }
-        std::cout << 'P' << i << " joined successed!" << "\n" << std::endl;
+        std::cout << players[i - 1]->get_playerOrdinal() << " joined successed!" << "\n" << std::endl;
     }   
 }
 
-void ShowDown::flow1_namePlayer_and_deckShuffle()
+void ShowDown::step1_namePlayer_and_deckShuffle()
 {
-    std::cout << "\n" << "Please name yourself!" << std::endl;
-    for (int i = 1; i < 4; i++)
+    std::cout << "\n\n" << "==== Step 1: Name yourself, and we'll shuffle the cards. ====" << "\n" << std::endl;
+    std::string response;
+    for (auto& player : players)
     {
-        std::cout << "\nPlease enter your name, " << 'P' << i << '.' << std::endl;
-        std::string response;
-        std::cin >> response;
-        players[i - 1]->name_himself(response);
-        std::cout << "P" << i - 1 << " is named " << players[i - 1]->name << 
+        if (typeid(*player) == typeid(AIPlayer))
+        {
+            std::cout << player->get_playerOrdinal() << " is AIPlayer." << std::endl;
+            player->name_himself(player->get_playerOrdinal());
+        }
+        else
+        {
+            std::cout << player->get_playerOrdinal() << ", please enter your name." << std::endl;
+            std::cin >> response;
+            player->name_himself(response);
+        }
+        std::cout << "\n" << std::endl;
     }
+}
+
+void ShowDown::step2_draw_cards()
+{
 }
 
 void ShowDown::add_player(const std::shared_ptr<Player>& player)

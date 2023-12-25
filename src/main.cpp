@@ -9,8 +9,8 @@
 int main()
 {
     ShowDown show_down;
-    show_down.flow0_join_player();
-    show_down.flow1_namePlayer_and_deckShuffle();
+    show_down.step0_join_player();
+    show_down.step1_namePlayer_and_deckShuffle();
     return 0;
 }
 

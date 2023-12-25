@@ -9,7 +9,7 @@ class AIPlayer : public Player
 private:
     /* data */
 public:
-    AIPlayer(/* args */);
+    AIPlayer(const int& ordinal);
     ~AIPlayer();
     Card show_card() override;
 };

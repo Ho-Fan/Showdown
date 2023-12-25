@@ -1,6 +1,6 @@
 #include "aiPlayer.hpp"
 
-AIPlayer::AIPlayer()
+AIPlayer::AIPlayer(const int& ordinal) : Player::Player(ordinal)
 {
 }
 

@@ -1,6 +1,7 @@
 #include "humanPlayer.hpp"
 
-HumanPlayer::HumanPlayer()
+
+HumanPlayer::HumanPlayer(const int& ordinal) : Player::Player(ordinal)
 {
 }
 

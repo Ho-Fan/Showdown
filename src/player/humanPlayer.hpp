@@ -10,7 +10,7 @@ class HumanPlayer : public Player
 private:
     /* data */
 public:
-    HumanPlayer(/* args */);
+    HumanPlayer(const int& ordinal);
     ~HumanPlayer();
     Card show_card() override;
 };

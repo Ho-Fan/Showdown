@@ -17,8 +17,9 @@ private:
 public:
     ShowDown();
     ~ShowDown();
-    void flow0_join_player();
-    void flow1_namePlayer_and_deckShuffle();
+    void step0_join_player();
+    void step1_namePlayer_and_deckShuffle();
+    void step2_draw_cards();
     void add_player(const std::shared_ptr<Player>& player);
 };
 

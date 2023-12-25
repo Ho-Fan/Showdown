@@ -1,5 +1,7 @@
 #ifndef CARD_HPP
 #define CARD_HPP
+#include <cstdlib>
+#include <iostream>
 
 
 // Define an enum class for card suits
@@ -33,7 +35,6 @@ public:
     Rank rank;
     Suit suit;
 
-    Card();
-    Card(Rank r, Suit s) : rank(r), suit(s) {}
+    Card(Rank r, Suit s);
 };
 #endif
