@@ -12,7 +12,7 @@ private:
 public:
     HumanPlayer(const int& ordinal);
     ~HumanPlayer();
-    Card show_card() override;
+    std::unique_ptr<Card> show_card() override;
 };
 
 #endif

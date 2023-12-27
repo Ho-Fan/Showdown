@@ -9,7 +9,7 @@ HumanPlayer::~HumanPlayer()
 {
 }
 
-Card HumanPlayer::show_card()
+std::unique_ptr<Card> HumanPlayer::show_card()
 {
-    return Card();
+    return 0;
 }

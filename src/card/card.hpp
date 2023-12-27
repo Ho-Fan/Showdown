@@ -2,6 +2,7 @@
 #define CARD_HPP
 #include <cstdlib>
 #include <iostream>
+#include <string>
 
 
 // Define an enum class for card suits
@@ -36,5 +37,8 @@ public:
     Suit suit;
 
     Card(Rank r, Suit s);
+    void print_card_info();
+    std::string get_rank();
+    std::string get_suit();
 };
 #endif

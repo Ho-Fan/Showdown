@@ -12,9 +12,12 @@ Deck::Deck()
 	}
 }
 
-void Deck::shuffle()
+void Deck::shuffle_cards()
 {
-
+	std::random_device rd;
+	std::mt19937 generator(rd());
+	std::shuffle(cards.begin(), cards.end(), generator);
+	std::cout << "Shuffle done." << std::endl;
 }
 
 std::unique_ptr<Card> Deck::deal_card()

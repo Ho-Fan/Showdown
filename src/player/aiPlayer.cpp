@@ -8,7 +8,7 @@ AIPlayer::~AIPlayer()
 {
 }
 
-Card AIPlayer::show_card()
+std::unique_ptr<Card> AIPlayer::show_card()
 {
-    return Card();
+    return 0;
 }

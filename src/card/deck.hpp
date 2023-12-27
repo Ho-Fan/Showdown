@@ -2,6 +2,8 @@
 #define DECK_HPP
 #include <vector>
 #include <memory>
+#include <algorithm>
+#include <random>
 #include "../card/card.hpp"
 
 
@@ -13,7 +15,7 @@ private:
 
 public:
     Deck();
-    void shuffle();
+    void shuffle_cards();
     std::unique_ptr<Card> deal_card();
 };
 #endif

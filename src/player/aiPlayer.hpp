@@ -11,7 +11,7 @@ private:
 public:
     AIPlayer(const int& ordinal);
     ~AIPlayer();
-    Card show_card() override;
+    std::unique_ptr<Card> show_card() override;
 };
 
 #endif

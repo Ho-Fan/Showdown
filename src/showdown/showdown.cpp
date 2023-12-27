@@ -51,6 +51,8 @@ void ShowDown::step1_namePlayer_and_deckShuffle()
         }
         std::cout << "\n" << std::endl;
     }
+
+    deck.shuffle_cards();
 }
 
 void ShowDown::step2_draw_cards()
