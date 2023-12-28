@@ -23,7 +23,7 @@ public:
     void name_himself(const std::string& playerName);
     void exchange_hands(Player& other);
     virtual std::unique_ptr<Card> show_card() = 0;
-    void draw_card(Deck& deck);
+    void draw_card(std::unique_ptr<Card>&& card);
 };
 
 #endif

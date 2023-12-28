@@ -21,6 +21,7 @@ void Player::exchange_hands(Player& other)
 {
 }
 
-void Player::draw_card(Deck& deck)
+void Player::draw_card(std::unique_ptr<Card>&& card)
 {
+	hands.emplace_back(std::move(card));
 }

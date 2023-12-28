@@ -57,6 +57,14 @@ void ShowDown::step1_namePlayer_and_deckShuffle()
 
 void ShowDown::step2_draw_cards()
 {
+    for (int i = 0; i < 13; ++i)
+    {
+        for (std::shared_ptr<Player>& player : players)
+        {
+            std::unique_ptr<Card> card = deck.deal_card();
+            player->draw_card(std::move(card));
+        }
+    }
 }
 
 void ShowDown::add_player(const std::shared_ptr<Player>& player)
