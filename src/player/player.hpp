@@ -17,6 +17,7 @@ protected:
     int points = 0;
     std::vector<std::unique_ptr<Card>> hands;
 
+
 public:
     Player(const int& ordinal);
     std::string get_playerOrdinal() const;

@@ -3,15 +3,24 @@
 
 Card::Card(Rank r, Suit s) : rank(r), suit(s)
 {
-	print_card_info();
 }
 
-void Card::print_card_info()
+std::string Card::get_card_info()
 {
-	std::cout << get_suit() << get_rank() << " build." << std::endl;
+	return get_suit_info() + " " + get_rank_info();
 }
 
-std::string Card::get_rank()
+Suit Card::get_suit() const
+{
+	return suit;
+}
+
+Rank Card::get_rank() const
+{
+	return rank;
+}
+
+std::string Card::get_rank_info()
 {
 	switch (rank)
 	{
@@ -46,7 +55,7 @@ std::string Card::get_rank()
 	}
 }
 
-std::string Card::get_suit()
+std::string Card::get_suit_info()
 {
 	switch (suit)
 	{

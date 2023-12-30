@@ -10,5 +10,7 @@ AIPlayer::~AIPlayer()
 
 std::unique_ptr<Card> AIPlayer::show_card()
 {
-    return 0;
+    std::unique_ptr<Card> card = std::move(hands.back());
+    hands.pop_back();
+    return card;
 }

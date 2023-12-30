@@ -20,9 +20,10 @@ public:
     void step0_join_player();
     void stepA_namePlayer_and_deckShuffle();
     void stepB_draw_cards();
-    void stepC_execute_13_rounds();
-    void stepC_i_1_;
+    void stepC_execute_rounds();
+
     void add_player(const std::shared_ptr<Player>& player);
+    void rank_card(const std::vector<std::unique_ptr<Card>>& roundCards);
 };
 
 #endif

@@ -32,13 +32,17 @@ enum class Rank {
 
 
 class Card {
-public:
+private:
     Rank rank;
     Suit suit;
 
+    std::string get_suit_info();
+    std::string get_rank_info();
+
+public:
     Card(Rank r, Suit s);
-    void print_card_info();
-    std::string get_rank();
-    std::string get_suit();
+    std::string get_card_info();
+    Suit get_suit() const;
+    Rank get_rank() const;
 };
 #endif

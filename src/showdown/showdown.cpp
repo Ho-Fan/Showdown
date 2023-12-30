@@ -51,12 +51,12 @@ void ShowDown::stepA_namePlayer_and_deckShuffle()
         }
         std::cout << "\n" << std::endl;
     }
-
     deck.shuffle_cards();
 }
 
 void ShowDown::stepB_draw_cards()
 {
+    std::cout << "\n\n" << "=== Step 2: Draw cards. ===" << std::endl;
     for (int i = 0; i < 13; ++i)
     {
         for (std::shared_ptr<Player>& player : players)
@@ -67,12 +67,48 @@ void ShowDown::stepB_draw_cards()
     }
 }
 
-void ShowDown::stepC_execute_13_rounds()
+void ShowDown::stepC_execute_rounds()
 {
-
+    std::cout << "\n\n" << "=== Step 3: Game start!!! ===" << std::endl;
+    std::vector<std::unique_ptr<Card>> roundCards;
+    for (int round = 0; round < 13; ++round)
+    {
+        std::cout << "\n" << "--- Round " << round <<  " ---" << std::endl;
+        for (auto& player : players)
+        {
+            std::unique_ptr<Card> card = std::move(player->show_card());
+            roundCards.emplace_back(std::move(card));
+        }
+        for (int i = 0; i < 4; i++)
+        {
+            std::cout << "P" << i << " show card " << roundCards[i]->get_card_info() << "." << std::endl;
+        }
+    }
 }
 
 void ShowDown::add_player(const std::shared_ptr<Player>& player)
 {
     players.push_back(player);
+}
+
+void ShowDown::rank_card(const std::vector <std::unique_ptr<Card>>& roundCards)
+{
+    // Define lambda function "compare" for max_element method
+    auto compare = [](const std::unique_ptr<Card>& a, const std::unique_ptr<Card>& b)
+        {
+            if (a->get_rank() == b->get_rank())
+            {
+                return a->get_suit() < b->get_suit();
+            }
+            else
+            {
+                return a->get_rank() < b->get_rank();
+            }
+        };
+
+    // Find the max element
+    auto it = std::max_element(roundCards.begin(), roundCards.end(), compare);
+    // Get ordinal of the max element
+    int maxPlayerOrdinal = std::distance(roundCards.begin(), it);
+
 }
