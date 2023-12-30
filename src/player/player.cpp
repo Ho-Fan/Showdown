@@ -25,3 +25,8 @@ void Player::draw_card(std::unique_ptr<Card>&& card)
 {
 	hands.emplace_back(std::move(card));
 }
+
+void Player::add_one_point()
+{
+	points++;
+}
