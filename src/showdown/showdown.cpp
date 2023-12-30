@@ -32,7 +32,7 @@ void ShowDown::step0_join_player()
     }   
 }
 
-void ShowDown::step1_namePlayer_and_deckShuffle()
+void ShowDown::stepA_namePlayer_and_deckShuffle()
 {
     std::cout << "\n\n" << "==== Step 1: Name yourself, and we'll shuffle the cards. ====" << "\n" << std::endl;
     std::string response;
@@ -55,7 +55,7 @@ void ShowDown::step1_namePlayer_and_deckShuffle()
     deck.shuffle_cards();
 }
 
-void ShowDown::step2_draw_cards()
+void ShowDown::stepB_draw_cards()
 {
     for (int i = 0; i < 13; ++i)
     {
@@ -65,6 +65,11 @@ void ShowDown::step2_draw_cards()
             player->draw_card(std::move(card));
         }
     }
+}
+
+void ShowDown::stepC_execute_13_rounds()
+{
+
 }
 
 void ShowDown::add_player(const std::shared_ptr<Player>& player)
