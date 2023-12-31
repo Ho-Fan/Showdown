@@ -26,6 +26,7 @@ public:
     virtual std::unique_ptr<Card> show_card() = 0;
     void draw_card(std::unique_ptr<Card>&& card);
     void add_one_point();
+    int get_points() const;
 };
 
 #endif

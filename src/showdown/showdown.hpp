@@ -24,6 +24,7 @@ public:
 
     void add_player(const std::shared_ptr<Player>& player);
     void rank_card(std::vector<std::unique_ptr<Card>>& roundCards);
+    void announce_winner();
 };
 
 #endif

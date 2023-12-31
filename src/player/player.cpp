@@ -30,3 +30,8 @@ void Player::add_one_point()
 {
 	points++;
 }
+
+int Player::get_points() const
+{
+	return points;
+}
