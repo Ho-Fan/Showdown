@@ -47,7 +47,7 @@
     <ClInclude Include="player\player.hpp">
       <Filter>標頭檔</Filter>
     </ClInclude>
-    <ClInclude Include="player\exchangeHands.hpp">
+    <ClInclude Include="player\handsExchange.hpp">
       <Filter>標頭檔</Filter>
     </ClInclude>
     <ClInclude Include="card\card.hpp">

@@ -139,7 +139,7 @@
     <ClInclude Include="card\card.hpp" />
     <ClInclude Include="card\deck.hpp" />
     <ClInclude Include="player\aiPlayer.hpp" />
-    <ClInclude Include="player\exchangeHands.hpp" />
+    <ClInclude Include="player\handsExchange.hpp" />
     <ClInclude Include="player\humanPlayer.hpp" />
     <ClInclude Include="player\player.hpp" />
     <ClInclude Include="showdown\showdown.hpp" />
