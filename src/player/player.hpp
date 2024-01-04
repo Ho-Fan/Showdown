@@ -7,6 +7,7 @@
 #include <memory>
 #include "../card/deck.hpp"
 #include "../card/card.hpp"
+#include "handsExchange.hpp"
 
 
 class Player
@@ -16,7 +17,8 @@ protected:
     std::string name;
     int points = 0;
     std::vector<std::unique_ptr<Card>> hands;
-
+    bool hasInitiatedExchange;
+    std::vector<std::shared_ptr<HandsExchange>> playerExchanges;
 
 public:
     Player(const int& ordinal);

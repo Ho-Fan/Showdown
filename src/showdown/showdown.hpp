@@ -6,6 +6,7 @@
 #include "../player/player.hpp"
 #include "../player/aiPlayer.hpp"
 #include "../player/humanPlayer.hpp"
+#include "../player/handsExchange.hpp"
 
 
 
@@ -14,6 +15,7 @@ class ShowDown
 private:
     std::vector<std::shared_ptr<Player>> players;
     Deck deck;
+    std::vector<std::shared_ptr<HandsExchange>> allExchanges;
 public:
     ShowDown();
     ~ShowDown();
