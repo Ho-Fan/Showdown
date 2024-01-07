@@ -113,6 +113,12 @@ void ShowDown::perform_exchange_hands(std::shared_ptr<Player>& activePlayer)
 
     if (response == 'y' || response == 'Y')
     {
+        std::vector<std::shared_ptr<Player>> availablePasivePlayers;
+        for (auto& player : players)
+        {
+            if (player != activePlayer && player->can_pasive_exchanged() == true)
+                availablePasivePlayers.emplace_back(player);
+        }
         activePlayer->set_active_exchange(false);
         std::cout << "You can exchange hands with the player below." << std::endl;
 
