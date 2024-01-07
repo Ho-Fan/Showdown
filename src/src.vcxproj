@@ -131,6 +131,7 @@
     <ClCompile Include="card\deck.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="player\aiPlayer.cpp" />
+    <ClCompile Include="player\handsExchange.cpp" />
     <ClCompile Include="player\humanPlayer.cpp" />
     <ClCompile Include="player\player.cpp" />
     <ClCompile Include="showdown\showdown.cpp" />

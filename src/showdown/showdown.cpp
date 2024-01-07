@@ -77,6 +77,10 @@ void ShowDown::stepC_execute_rounds()
         std::cout << "\n" << "--- Round " << round <<  " ---" << std::endl;
         for (auto& player : players)
         {
+            if (typeid(*player) == typeid(HumanPlayer) && player->can_active_exchage() == true && player->can_pasive_exchanged() == true)
+            {
+                perform_exchange_hands(player);
+            }
             std::cout << "--- " << player->get_playerOrdinal() << " turn." << " ---" << std::endl;
             std::unique_ptr<Card> card = std::move(player->show_card());
             roundCards.emplace_back(std::move(card));
@@ -94,6 +98,26 @@ void ShowDown::stepC_execute_rounds()
 void ShowDown::add_player(const std::shared_ptr<Player>& player)
 {
     players.push_back(player);
+}
+
+void ShowDown::perform_exchange_hands(std::shared_ptr<Player>& activePlayer)
+{
+    std::cout << "Do you want to exchange hands with someone? (y/n)" << std::endl;
+    char response;
+    std::cin >> response;
+    while ((response != 'y' && response != 'Y') || (response != 'n' && response != 'N'))
+    {
+        std::cout << "Invalid response. Please enter 'y' or 'n': " << std::endl;
+        std::cin >> response;
+    }
+
+    if (response == 'y' || response == 'Y')
+    {
+        activePlayer->set_active_exchange(false);
+        std::cout << "You can exchange hands with the player below." << std::endl;
+
+
+    }
 }
 
 void ShowDown::rank_card(std::vector <std::unique_ptr<Card>>& roundCards)
