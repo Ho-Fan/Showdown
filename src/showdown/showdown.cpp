@@ -7,10 +7,12 @@ ShowDown::ShowDown()
 
 }
 
+
 ShowDown::~ShowDown()
 {
 
 }
+
 
 void ShowDown::step0_join_player()
 {   
@@ -31,6 +33,7 @@ void ShowDown::step0_join_player()
         std::cout << players[i - 1]->get_playerOrdinal() << " joined successed!" << "\n" << std::endl;
     }   
 }
+
 
 void ShowDown::stepA_namePlayer_and_deckShuffle()
 {
@@ -54,6 +57,7 @@ void ShowDown::stepA_namePlayer_and_deckShuffle()
     deck.shuffle_cards();
 }
 
+
 void ShowDown::stepB_draw_cards()
 {
     std::cout << "\n\n" << "=== Step 2: Draw cards. ===" << std::endl;
@@ -67,6 +71,7 @@ void ShowDown::stepB_draw_cards()
     }
     std::cout << "Draw cards done." << std::endl;
 }
+
 
 void ShowDown::stepC_execute_rounds()
 {
@@ -91,21 +96,26 @@ void ShowDown::stepC_execute_rounds()
             std::cout << "P" << i + 1 << " show card " << roundCards[i]->get_card_info() << "." << std::endl;
         }
         rank_card(roundCards);
+
+        decrement_all_exchange_turns();
+        terminate_expired_exchange_hands();
     }
     announce_winner();
 }
+
 
 void ShowDown::add_player(const std::shared_ptr<Player>& player)
 {
     players.push_back(player);
 }
 
+
 void ShowDown::perform_exchange_hands(std::shared_ptr<Player>& activePlayer)
 {
     std::cout << "Do you want to exchange hands with someone? (y/n)" << std::endl;
     char response;
     std::cin >> response;
-    while ((response != 'y' && response != 'Y') || (response != 'n' && response != 'N'))
+    while ((response != 'y' && response != 'Y') && (response != 'n' && response != 'N'))
     {
         std::cout << "Invalid response. Please enter 'y' or 'n': " << std::endl;
         std::cin >> response;
@@ -119,12 +129,26 @@ void ShowDown::perform_exchange_hands(std::shared_ptr<Player>& activePlayer)
             if (player != activePlayer && player->can_pasive_exchanged() == true)
                 availablePasivePlayers.emplace_back(player);
         }
-        activePlayer->set_active_exchange(false);
-        std::cout << "You can exchange hands with the player below." << std::endl;
+        int responseOrdinal = -1;
+        while (responseOrdinal < 0 || responseOrdinal >= availablePasivePlayers.size())
+        {
+            std::cout << "You can exchange hands with the players below." << std::endl;
+            for (int i = 0; i < availablePasivePlayers.size(); ++i)
+            {
+                std::cout << i << ". " << availablePasivePlayers[i]->get_playerOrdinal() << std::endl;
+            }
+            std::cout << "\n" << "Which player do you want to change with?" << std::endl;
+            std::cin >> responseOrdinal;
+        }
 
-
+        std::shared_ptr<Player> passivePlayer = availablePasivePlayers[responseOrdinal];
+        allExchanges.emplace_back(std::make_shared<HandsExchange>(activePlayer, passivePlayer));
+        activePlayer->set_hands_exchange(*allExchanges.end());
+        passivePlayer->set_hands_exchange(*allExchanges.end());
+        activePlayer->exchange_hands(passivePlayer);
     }
 }
+
 
 void ShowDown::rank_card(std::vector <std::unique_ptr<Card>>& roundCards)
 {
@@ -153,6 +177,7 @@ void ShowDown::rank_card(std::vector <std::unique_ptr<Card>>& roundCards)
     roundCards.clear();
 }
 
+
 void ShowDown::announce_winner()
 {
     for (const std::shared_ptr<Player>& player : players)
@@ -173,4 +198,22 @@ void ShowDown::announce_winner()
             std::cout << player->get_playerOrdinal() << " ";
     }
     std::cout << "!!!" << std::endl;
+}
+
+void ShowDown::decrement_all_exchange_turns()
+{
+    for (auto& exchange : allExchanges)
+        exchange->decrement_turns();
+}
+
+void ShowDown::terminate_expired_exchange_hands()
+{
+    for (int i = 0; i < allExchanges.size(); ++i)
+    {
+        if (allExchanges[i]->get_remain_turns() <= 0)
+        {
+            allExchanges[i]->~HandsExchange();
+            allExchanges.erase(allExchanges.begin() + i);
+        }
+    }
 }

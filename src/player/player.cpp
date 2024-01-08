@@ -21,8 +21,15 @@ void Player::name_himself(const std::string& playerName)
 	std::cout << "Name " << name << " successed!" << std::endl;
 }
 
+void Player::set_hands_exchange(std::shared_ptr<HandsExchange>& exchange)
+{
+	handsExchange = exchange;
+}
+
 void Player::exchange_hands(std::shared_ptr<Player>& otherPlayer)
 {
+	activeExchange = false;
+	std::swap(hands, otherPlayer->hands);
 }
 
 void Player::draw_card(std::unique_ptr<Card>&& card)
@@ -53,7 +60,7 @@ bool Player::can_pasive_exchanged()
 		return true;
 }
 
-void Player::set_active_exchange(bool booling)
+void Player::reset_hands_exchange()
 {
-	activeExchange = booling;
+	handsExchange.reset();
 }

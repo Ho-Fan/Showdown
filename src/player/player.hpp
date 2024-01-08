@@ -25,6 +25,7 @@ public:
     Player(const int& ordinal);
     std::string get_playerOrdinal() const;
     void name_himself(const std::string& playerName);
+    void set_hands_exchange(std::shared_ptr<HandsExchange>& exchange);
     void exchange_hands(std::shared_ptr<Player>& otherPlayer);
     virtual std::unique_ptr<Card> show_card() = 0;
     void draw_card(std::unique_ptr<Card>&& card);
@@ -32,7 +33,7 @@ public:
     int get_points() const;
     bool can_active_exchage() const;
     bool can_pasive_exchanged();
-    void set_active_exchange(bool booling);
+    void reset_hands_exchange();
 };
 
 #endif

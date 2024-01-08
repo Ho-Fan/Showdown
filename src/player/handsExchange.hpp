@@ -14,10 +14,10 @@ private:
     int remainTurns = 3;
 
 public:
-    HandsExchange();
-    void perform_exchange();
-    void revert_exchange();
+    HandsExchange(std::shared_ptr<Player>& inP, std::shared_ptr<Player>& paP);
+    ~HandsExchange();
     void decrement_turns();
+    int get_remain_turns() const;
 };
 
 #endif

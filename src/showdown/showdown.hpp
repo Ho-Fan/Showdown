@@ -28,6 +28,8 @@ public:
     void perform_exchange_hands(std::shared_ptr<Player>& player);
     void rank_card(std::vector<std::unique_ptr<Card>>& roundCards);
     void announce_winner();
+    void decrement_all_exchange_turns();
+    void terminate_expired_exchange_hands();
 };
 
 #endif
