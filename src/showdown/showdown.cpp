@@ -79,14 +79,15 @@ void ShowDown::stepC_execute_rounds()
     std::vector<std::unique_ptr<Card>> roundCards;
     for (int round = 1; round < 14; ++round)
     {
-        std::cout << "\n" << "--- Round " << round <<  " ---" << std::endl;
+        std::cout << "\n\n\n" << "--- Round " << round <<  " ---\n" << std::endl;
         for (auto& player : players)
         {
+            std::cout << "--- " << player->get_playerOrdinal() << " turn." << " ---" << std::endl;
             if (typeid(*player) == typeid(HumanPlayer) && player->can_active_exchage() == true && player->can_pasive_exchanged() == true)
             {
                 perform_exchange_hands(player);
             }
-            std::cout << "--- " << player->get_playerOrdinal() << " turn." << " ---" << std::endl;
+            std::cout << "\n" << std::endl;
             std::unique_ptr<Card> card = std::move(player->show_card());
             roundCards.emplace_back(std::move(card));
             std::cout << "\n" << std::endl;
@@ -143,9 +144,10 @@ void ShowDown::perform_exchange_hands(std::shared_ptr<Player>& activePlayer)
 
         std::shared_ptr<Player> passivePlayer = availablePasivePlayers[responseOrdinal];
         allExchanges.emplace_back(std::make_shared<HandsExchange>(activePlayer, passivePlayer));
-        activePlayer->set_hands_exchange(*allExchanges.end());
-        passivePlayer->set_hands_exchange(*allExchanges.end());
+        activePlayer->set_hands_exchange(allExchanges.back());
+        passivePlayer->set_hands_exchange(allExchanges.back());
         activePlayer->exchange_hands(passivePlayer);
+        std::cout << "You have exchanged hands with " << passivePlayer->get_playerOrdinal() << "!!!" << std::endl;
     }
 }
 
@@ -170,7 +172,7 @@ void ShowDown::rank_card(std::vector <std::unique_ptr<Card>>& roundCards)
     // Get ordinal of the max element
     auto ordinal = std::distance(roundCards.begin(), it);
     // Announce the winner of this round
-    std::cout << "P" << ordinal + 1 << " show the max card, " << roundCards[ordinal]->get_card_info() << std::endl;
+    std::cout << "P" << ordinal + 1 << " show the max card, " << roundCards[ordinal]->get_card_info() << ". He/She win the round!!!" << std::endl;
     // Add one point for the winner
     players[ordinal]->add_one_point();
     // Clear the vector "roundCards" 
@@ -208,11 +210,10 @@ void ShowDown::decrement_all_exchange_turns()
 
 void ShowDown::terminate_expired_exchange_hands()
 {
-    for (int i = 0; i < allExchanges.size(); ++i)
+    for (int i = 0; i < allExchanges.size(); i++)
     {
         if (allExchanges[i]->get_remain_turns() <= 0)
         {
-            allExchanges[i]->~HandsExchange();
             allExchanges.erase(allExchanges.begin() + i);
         }
     }
