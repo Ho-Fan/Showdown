@@ -82,6 +82,10 @@ void ShowDown::stepC_execute_rounds()
         std::cout << "\n\n\n" << "--- Round " << round <<  " ---\n" << std::endl;
         for (auto& player : players)
         {
+            // If the player have no card in hands, skip turn.
+            if (player->get_size_of_hands() == 0)
+                continue;
+
             std::cout << "--- " << player->get_playerOrdinal() << " turn." << " ---" << std::endl;
             if (typeid(*player) == typeid(HumanPlayer) && player->can_active_exchage() == true && player->can_pasive_exchanged() == true)
             {
@@ -214,6 +218,7 @@ void ShowDown::terminate_expired_exchange_hands()
     {
         if (allExchanges[i]->get_remain_turns() <= 0)
         {
+            allExchanges[i]->terminate_hands_exchange();
             allExchanges.erase(allExchanges.begin() + i);
         }
     }

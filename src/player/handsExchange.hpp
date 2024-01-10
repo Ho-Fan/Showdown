@@ -17,6 +17,7 @@ public:
     HandsExchange(std::shared_ptr<Player>& inP, std::shared_ptr<Player>& paP);
     ~HandsExchange();
     void decrement_turns();
+    void terminate_hands_exchange();
     int get_remain_turns() const;
 };
 

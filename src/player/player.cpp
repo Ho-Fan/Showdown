@@ -64,3 +64,8 @@ void Player::reset_hands_exchange()
 {
 	handsExchange.reset();
 }
+
+int Player::get_size_of_hands()
+{
+	return hands.size();
+}

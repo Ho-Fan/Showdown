@@ -34,6 +34,7 @@ public:
     bool can_active_exchage() const;
     bool can_pasive_exchanged();
     void reset_hands_exchange();
+    int get_size_of_hands();
 };
 
 #endif
