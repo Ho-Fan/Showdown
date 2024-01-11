@@ -82,9 +82,12 @@ void ShowDown::stepC_execute_rounds()
         std::cout << "\n\n\n" << "--- Round " << round <<  " ---\n" << std::endl;
         for (auto& player : players)
         {
-            // If the player have no card in hands, skip turn.
+            // If the player have no card in hands, push back a nullptr and skip turn.
             if (player->get_size_of_hands() == 0)
+            {
+                roundCards.emplace_back(nullptr);
                 continue;
+            }
 
             std::cout << "--- " << player->get_playerOrdinal() << " turn." << " ---" << std::endl;
             if (typeid(*player) == typeid(HumanPlayer) && player->can_active_exchage() == true && player->can_pasive_exchanged() == true)
@@ -161,6 +164,13 @@ void ShowDown::rank_card(std::vector <std::unique_ptr<Card>>& roundCards)
     // Define lambda function "compare" for max_element method
     auto compare = [](const std::unique_ptr<Card>& a, const std::unique_ptr<Card>& b)
         {
+            // Deal with the nullptr. If a is null, return b > a.
+            if (!a)
+                return false;
+            // Deal with the nullptr. If b is null, return a > b.
+            if (!b)
+                return true;
+            // If card != nullptr, rank card normally.
             if (a->get_rank() == b->get_rank())
             {
                 return a->get_suit() < b->get_suit();
