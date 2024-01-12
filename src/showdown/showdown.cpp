@@ -101,7 +101,10 @@ void ShowDown::stepC_execute_rounds()
         }
         for (int i = 0; i < 4; i++)
         {
-            std::cout << "P" << i + 1 << " show card " << roundCards[i]->get_card_info() << "." << std::endl;
+            if (roundCards[i] == nullptr)
+                std::cout << "P" << i + 1 << " didn't show card in this round." << std::endl;
+            else
+                std::cout << "P" << i + 1 << " show card " << roundCards[i]->get_card_info() << "." << std::endl;
         }
         rank_card(roundCards);
 
@@ -166,10 +169,10 @@ void ShowDown::rank_card(std::vector <std::unique_ptr<Card>>& roundCards)
         {
             // Deal with the nullptr. If a is null, return b > a.
             if (!a)
-                return false;
+                return true;
             // Deal with the nullptr. If b is null, return a > b.
             if (!b)
-                return true;
+                return false;
             // If card != nullptr, rank card normally.
             if (a->get_rank() == b->get_rank())
             {
