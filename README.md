@@ -4,9 +4,9 @@
 This project originated from the need to learn C++ and Object-Oriented Analysis (OOA). The goal is to deepen the understanding of these concepts through practical application and to implement the learned knowledge in a real-world project.
 
 ## Technologies and Skills Practiced
-- Object-Oriented Analysis (OOA) using the Astah tool.
-- Programming in the C++ language.
-- Developing with the Visual Studio IDE.
+- Object-Oriented Analysis (OOA) using Astah tool.
+- Programming in C++ language.
+- Developing with Visual Studio IDE.
 
 ## Functionality of the Project
 The project is a Showdown poker card game with the following features:
