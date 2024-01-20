@@ -24,6 +24,12 @@ The project is a Showdown poker card game with the following features:
 - The game starts with shuffling the deck and players drawing 13 cards each.
 - Players take turns to play cards, exchange hands, and score points.
 
+### Exchange Hands Gameplay Mechanics
+- During each round, before playing a card, players have the option to use the "Exchange Hands" privilege. This privilege allows players to exchange their hand of cards with another player (not themselves) and can be used only once per game by each player.
+- Once a player decides to use this privilege, they choose another player to exchange hands with.
+- After the exchange, the hands are swapped back after three rounds.
+- If a player finds themselves without any cards to play after an exchange, they are not required to play a card and cannot participate in the ranking contest for that round.
+
 ### Card Rankings
 - Cards are ranked from 2 to A, in ascending order of value.
 - Suits are Clubs, Diamonds, Hearts, and Spades.
@@ -62,9 +68,3 @@ To run the project, execute the following steps:
      ```
 
 Follow the CLI prompts to interact with the game.
-
-### Additional Gameplay Mechanics
-- During each round, before playing a card, players have the option to use the "Exchange Hands" privilege. This privilege allows players to exchange their hand of cards with another player (not themselves) and can be used only once per game by each player.
-- Once a player decides to use this privilege, they choose another player to exchange hands with.
-- After the exchange, the hands are swapped back after three rounds.
-- If a player finds themselves without any cards to play after an exchange, they are not required to play a card and cannot participate in the ranking contest for that round.
