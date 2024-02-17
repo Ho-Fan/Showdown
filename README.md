@@ -60,11 +60,11 @@ To run the project, execute the following steps:
 3. Run the executable:
    - On Windows:
      ```
-     game.exe
+     \src\x64\Debug\src.exe
      ```
    - On Unix-like systems:
      ```
-     ./game
+     ./src/x64/Debug/src
      ```
 
 Follow the CLI prompts to interact with the game.
